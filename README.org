@@ -1,0 +1,15 @@
+* About
+:PROPERTIES:
+:CUSTOM_ID: about
+:END:
+Ufo-Catcher is a library for selecting regions in Emacs.
+
+* Table of Contents
+:PROPERTIES:
+:TOC:      :include all :ignore (this)
+:CUSTOM_ID: table-of-contents
+:END:
+:CONTENTS:
+- [[#about][About]]
+:END:
+
