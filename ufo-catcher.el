@@ -1,7 +1,10 @@
-;;; ufo-catcher.el  --- Summary
+;;; ufo-catcher.el  --- Visually select regions in emacs
+;;
+;; Copyright (C) 2024
+;;
+;; Version: 0.1
 
 ;;; Commentary:
-;;; Version: 0.10.0
 
 ;;; Code:
 
@@ -87,8 +90,8 @@ By repeating or truncating elements."
     ;; Reverse the list to maintain the original order and return.
     (nreverse result)))
 
-(defun ufo-catcher-dynamic-overlay-session (regions)
-  "Start a session to dynamically overlay REGIONS and jump to the match."
+(defun ufo-catcher-catch (regions)
+  "Start a session to dynamically overlay REGIONS and return the match."
   (interactive)
   (let* ((input "")
          (strings (ufo-catcher-expand-keyboard-characters ufo-catcher-keyboard-characters-list (length regions) ufo-catcher-padding-amount))
@@ -167,7 +170,7 @@ By repeating or truncating elements."
 
 (defun ufo-catcher-test-overlay ()
   (interactive)
-  (let ((pos (ufo-catcher-dynamic-overlay-session (sort (ufo-catcher-generate-random-visible-buffer-regions) (lambda (a b) (< (car a) (car b)))))))
+  (let ((pos (ufo-catcher-catch (sort (ufo-catcher-generate-random-visible-buffer-regions) (lambda (a b) (< (car a) (car b)))))))
     (if pos (goto-char (car pos)))))
 
 (global-set-key (kbd "<f8>") 'ufo-catcher-test-overlay)
