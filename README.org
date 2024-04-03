@@ -2,7 +2,7 @@
 :PROPERTIES:
 :CUSTOM_ID: about
 :END:
-Ufo-Catcher is a library for selecting regions in Emacs.
+ufo-catcher is a library for selecting regions in Emacs.
 
 * Table of Contents
 :PROPERTIES:
