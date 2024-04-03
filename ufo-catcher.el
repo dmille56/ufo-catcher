@@ -1,16 +1,13 @@
-;;; ufo-catcher.el  --- Visually select regions in emacs                         -*- lexical-binding: t; -*-
+;;; ufo-catcher.el  --- Visually select regions in emacs  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2024
+;: Copyright (C) 2024
 
-;; Version: 1.0.0
-;; Author: Donovan Miller
-;; Package-Requires: ((emacs "26.1"))
+;; Version: 0.1
 ;; Keywords: tools
-;; URL: https://github.com/dmille56/ufo-catcher
+;; Package-Requires: ((emacs "26.1"))
+;; SPDX-License-Identifier: Apache-2.0
 
 ;;; Commentary:
-
-;; 
 
 ;;; Code:
 
