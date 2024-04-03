@@ -2,9 +2,11 @@
 
 ;; Copyright (C) 2024
 
+;; Version: 1.0.0
 ;; Author: Donovan Miller
+;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: tools
-;; Version: 0.1
+;; URL: https://github.com/dmille56/ufo-catcher
 
 ;;; Commentary:
 
