@@ -90,8 +90,7 @@ Pad the strings to atleast PADDING-LENGTH."
 (defun ufo-catcher-adjust-list-length (input-list target-length)
   "Adjust the length of INPUT-LIST to TARGET-LENGTH.
 By repeating or truncating elements."
-  (let ((result ())  ;; Initialize an empty list to store the result.
-        (current-list input-list))  ;; Start with the initial list.
+  (let ((result ()))  ;; Initialize an empty list to store the result.
     ;; Loop and construct the list with the required elements.
     (cl-loop for i from 0 below target-length
              do (push (nth (mod i (length input-list)) input-list) result))
@@ -108,13 +107,11 @@ By repeating or truncating elements."
          (res 'nil)
          (blackout-overlay 'nil)
          (overlays (mapcar (lambda (region)
-                             (let* ((start (car region))
-                                    (end (cdr region)))
+                             (let* ((start (car region)))
                                (make-overlay start (+ start (length (car strings))))))
                            regions))
          (overlays2 (mapcar (lambda (region)
-                              (let* ((start (car region))
-                                     (end (cdr region)))
+                              (let* ((end (cdr region)))
                                 (make-overlay end (+ end (length (car strings))))))
                             regions)))
     (if ufo-catcher-blackout-buffer-enable (progn
@@ -165,18 +162,19 @@ By repeating or truncating elements."
     res))
 
 (defun ufo-catcher-generate-random-visible-buffer-regions ()
-  "Generate 5 random regions within the visible part of the current buffer."
+"Generate 5 random regions within the visible part of the current buffer."
   (interactive)
   (let ((regions '())
         (start (window-start))
         (end (window-end)))
-    (dotimes (i 5 regions)
+    (dotimes (_ 5 regions)
       (let* ((region-start (+ start (random (1+ (- end start)))))
              (region-end (+ region-start (random (1+ (- end region-start))))))
         (push (cons region-start region-end) regions)))
     regions))
 
 (defun ufo-catcher-test-overlay ()
+"Function to test ufo-catcher."
   (interactive)
   (let ((pos (ufo-catcher-catch (sort (ufo-catcher-generate-random-visible-buffer-regions) (lambda (a b) (< (car a) (car b)))))))
     (if pos (goto-char (car pos)))))
